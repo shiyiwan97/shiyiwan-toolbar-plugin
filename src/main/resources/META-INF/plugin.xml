@@ -1,0 +1,21 @@
+<idea-plugin>
+    <id>com.shiyiwan.shiyiwan-toolbar-plugin.ToolbarKit</id>
+    <name>ToolbarKit</name>
+    <vendor email="1057862180@qq.com" url="http://www.jetbrains.com">IntelliJ Platform SDK</vendor>
+
+    <description><![CDATA[
+        This is a toolbar kit plugin.TODO:Add description
+    ]]></description>
+
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends></depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+    </actions>
+</idea-plugin>
