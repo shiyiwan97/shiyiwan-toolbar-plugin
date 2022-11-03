@@ -12,7 +12,8 @@
     <depends></depends>
 
     <extensions defaultExtensionNs="com.intellij">
-        <!-- Add your extensions here -->
+        <toolWindow id="shiyiwan utils" anchor="right"
+                    factoryClass="com.shiyiwan.plugin.ToolbarFactory"/>
     </extensions>
 
     <actions>
