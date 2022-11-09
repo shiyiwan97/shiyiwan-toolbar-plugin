@@ -15,7 +15,7 @@ public class ToolbarFactory implements ToolWindowFactory {
     @Override
     public void createToolWindowContent(@NotNull Project project, @NotNull ToolWindow toolWindow) {
 
-        ToolbarPanel toolbarPanel = new ToolbarPanel();
+        ToolbarForm toolbarPanel = new ToolbarForm();
         ContentFactory contentFactory = ContentFactory.SERVICE.getInstance();
         JBScrollPane jbScrollPane = new JBScrollPane(toolbarPanel.getPanel());
         jbScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED);
