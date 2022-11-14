@@ -1,4 +1,4 @@
-package com.shiyiwan.plugin.util;
+package com.shiyiwan.plugin.common_utils;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

@@ -1,10 +1,11 @@
-package com.shiyiwan.plugin.util;
+package com.shiyiwan.plugin.common_utils;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
+import java.io.File;
 import java.io.IOException;
 
 public class SystemUtils {
@@ -19,5 +20,13 @@ public class SystemUtils {
             unsupportedFlavorException.printStackTrace();
         }
         return data;
+    }
+
+    public static boolean fileExist(String fileURI){
+        return new File(fileURI).exists();
+    }
+
+    public static void createFile(String fileURI) throws IOException {
+            new File(fileURI).createNewFile();
     }
 }

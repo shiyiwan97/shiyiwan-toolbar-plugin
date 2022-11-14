@@ -1,20 +1,20 @@
-package com.shiyiwan.plugin;
+package com.shiyiwan.plugin.excel_utils;
 
-import com.shiyiwan.plugin.util.ExcelUtils;
-import com.shiyiwan.plugin.util.SystemUtils;
+import com.shiyiwan.plugin.common_utils.ExcelUtils;
+import com.shiyiwan.plugin.common_utils.SystemUtils;
 
 import javax.swing.*;
 
-public class ToolbarForm {
+public class ExcelDataCompareForm {
     private JTable sourceTable1;
     private JTable sourceTable2;
     private JTable resultTable;
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;
-    private JButton paste1;
-    private JButton paste2;
-    private JButton calculate;
+    private JButton pasteButton1;
+    private JButton pasteButton2;
+    private JButton calculateButton;
     private JPanel panel;
 
     private Object[][] storeDataArray1;
@@ -25,20 +25,20 @@ public class ToolbarForm {
         return panel;
     }
 
-    public ToolbarForm() {
-        paste1.addActionListener(e -> {
+    public ExcelDataCompareForm() {
+        pasteButton1.addActionListener(e -> {
             String dataString = SystemUtils.getDataFromSystemClipBoard();
             Object[][] dataArray = ExcelUtils.getDataFromString(dataString);
             storeDataArray1 = dataArray;
             ExcelUtils.fillDataIntoTable(dataArray,sourceTable1);
         });
-        paste2.addActionListener(e -> {
+        pasteButton2.addActionListener(e -> {
             String dataString = SystemUtils.getDataFromSystemClipBoard();
             Object[][] dataArray = ExcelUtils.getDataFromString(dataString);
             storeDataArray2 = dataArray;
             ExcelUtils.fillDataIntoTable(dataArray,sourceTable2);
         });
-        calculate.addActionListener(e -> {
+        calculateButton.addActionListener(e -> {
             Object[][] differentData = ExcelUtils.calculateDifferentData(storeDataArray1, storeDataArray2, 1, 1, 2, 2);
             ExcelUtils.fillDataIntoTable(differentData,resultTable);
         });
