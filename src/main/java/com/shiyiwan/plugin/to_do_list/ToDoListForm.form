@@ -33,7 +33,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Add After"/>
+          <text value="Add First"/>
         </properties>
       </component>
       <component id="5b073" class="javax.swing.JLabel">
@@ -51,7 +51,7 @@
           <gridbag weightx="0.0" weighty="0.0"/>
         </constraints>
         <properties>
-          <text value="Add Before"/>
+          <text value="Add Last"/>
         </properties>
       </component>
       <component id="737dc" class="javax.swing.JButton" binding="doneButton" default-binding="true">
@@ -70,6 +70,15 @@
         </constraints>
         <properties>
           <text value="Delete"/>
+        </properties>
+      </component>
+      <component id="2085f" class="javax.swing.JButton" binding="importantButton" default-binding="true">
+        <constraints>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <gridbag weightx="0.0" weighty="0.0"/>
+        </constraints>
+        <properties>
+          <text value="Important"/>
         </properties>
       </component>
     </children>

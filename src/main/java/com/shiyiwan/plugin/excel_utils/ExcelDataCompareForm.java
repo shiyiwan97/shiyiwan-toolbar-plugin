@@ -11,7 +11,6 @@ public class ExcelDataCompareForm {
     private JTable resultTable;
     private JTextField textField1;
     private JTextField textField2;
-    private JTextField textField3;
     private JButton pasteButton1;
     private JButton pasteButton2;
     private JButton calculateButton;
