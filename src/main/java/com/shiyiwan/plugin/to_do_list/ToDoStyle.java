@@ -1,6 +1,6 @@
 package com.shiyiwan.plugin.to_do_list;
 
-import com.shiyiwan.plugin.common_utils.BinarySwitchUtils;
+import com.shiyiwan.plugin.common_utils.BitSwitchUtils;
 
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +21,7 @@ public class ToDoStyle {
     };
 
     public static String generateCssStyleFromState(int state){
-        List<Integer> stateList = BinarySwitchUtils.getStateList(state);
+        List<Integer> stateList = BitSwitchUtils.getStateList(state);
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < stateList.size(); i++) {
             if(stateList.get(i) == 1){

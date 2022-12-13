@@ -1,6 +1,6 @@
 package com.shiyiwan.plugin.to_do_list;
 
-import com.shiyiwan.plugin.common_utils.BinarySwitchUtils;
+import com.shiyiwan.plugin.common_utils.BitSwitchUtils;
 import com.shiyiwan.plugin.common_utils.SystemUtils;
 
 import javax.swing.*;
@@ -18,6 +18,8 @@ public class ToDoListForm {
     private JButton addBeforeButton;
     private JButton doneButton;
     private JButton importantButton;
+    private JButton refreshButton;
+    private JButton editButton;
     private final String localFileURI;
     private List<String> toDoList;
     private boolean isSelect = false;
@@ -131,6 +133,33 @@ public class ToDoListForm {
             isImportant = !isImportant;
             syncToLocal();
         });
+
+        refreshButton.addActionListener(e -> {
+            toDoList = getToDoListFromLocal();
+            defaultListModel.clear();
+            toDoList.stream().forEach(data -> defaultListModel.addElement(renderToHtml(data)));
+            list.setModel(defaultListModel);
+        });
+
+        editButton.addActionListener(e -> {
+
+            int firstSelectedIndex;
+            int[] selectedIndices = list.getSelectedIndices();
+            if (selectedIndices.length >= 1) {
+                firstSelectedIndex = selectedIndices[0];
+                String firstSelectedText = toDoList.get(firstSelectedIndex);
+                String oldText = firstSelectedText.substring(0, firstSelectedText.lastIndexOf('$'));
+                //parentComponent:以那个窗口为基础弹窗;message:输入框上方提示信息;title:弹框标题;messageType:消息类型;icon:图标;
+                //selectionValues:多选框及内容;initialSelectionValue:输入框初始内容
+                Object newTextObj = JOptionPane.showInputDialog(null, "", "Edit", JOptionPane.PLAIN_MESSAGE, null, null, oldText);
+                String newText = newTextObj.toString();
+                if (!newText.equals("") && !newText.equals(oldText)) {
+                    defaultListModel.set(firstSelectedIndex, newText);
+                    toDoList.set(firstSelectedIndex, newText + "$0");
+                    syncToLocal();
+                }
+            }
+        });
     }
 
     public JPanel getPanel() {
@@ -167,14 +196,14 @@ public class ToDoListForm {
         int index = input.lastIndexOf("$");
         String data = input.substring(0, index);
         int state = Integer.parseInt(input.substring(index + 1));
-        int changedState = BinarySwitchUtils.calculateState(state, needChangedIndex, needChangedState);
+        int changedState = BitSwitchUtils.calculateState(state, needChangedIndex, needChangedState);
         return data + "$" + changedState;
     }
 
     public boolean getState(String input, int stateIndex) {
         int index = input.lastIndexOf("$");
         int state = Integer.parseInt(input.substring(index + 1));
-        return BinarySwitchUtils.getState(state, stateIndex);
+        return BitSwitchUtils.getState(state, stateIndex);
     }
 
 
