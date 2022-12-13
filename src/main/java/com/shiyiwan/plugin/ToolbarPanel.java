@@ -1,7 +1,7 @@
 package com.shiyiwan.plugin;
 
-import com.shiyiwan.plugin.util.ExcelUtils;
-import com.shiyiwan.plugin.util.SystemUtils;
+import com.shiyiwan.plugin.common_utils.ExcelUtils;
+import com.shiyiwan.plugin.common_utils.SystemUtils;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
